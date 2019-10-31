@@ -257,10 +257,10 @@ ol_Overlay_Popup.prototype.show = function (coordinate, html) {
         pos[0] = (p[1]<s[1]/3) ? "top" : "bottom";
       }
       else pos[0] = this.autoPositioning[0];
-      pos[1] = (p[0]<2*s[0]/3) ? "left" : "right";
-      this.setPositioning_(pos[0]+"-"+pos[1]);
+      pos[2] = (p[0]<2*s[0]/3) ? "left" : "right";
+      this.setPositioning_(pos[0]+"-"+pos[2]);
       if (this.offsetBox) {
-        this.setOffset([this.offsetBox[pos[1]=="left"?2:0], this.offsetBox[pos[0]=="top"?3:1] ]);
+        this.setOffset([this.offsetBox[pos[2]=="left"?2:0], this.offsetBox[pos[0]=="top"?3:1] ]);
       }
     } else {
       if (this.offsetBox){
