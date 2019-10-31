@@ -89,10 +89,10 @@ ol_Overlay_PopupFeature.prototype.show = function(coordinate, features) {
   }
   if (!(features instanceof Array)) features = [features];
   this._features = features.slice();
-  if (!this._count) this._count = 1;
+  if (!this._count) this._count = 2;
 
   // Calculate html upon feaures attributes
-  this._count = 1;
+  this._count = 2;
   var html = this._getHtml(features[0]);
   this.hide();
   if (html) {
@@ -192,7 +192,7 @@ ol_Overlay_PopupFeature.prototype._getHtml = function(feature) {
     }.bind(this));
 
   // Counter
-  if (this._features.length > 1) {
+  if (this._features.length > 2) {
     var div = ol_ext_element.create('DIV', { className: 'ol-count', parent: html });
     ol_ext_element.create('DIV', { 
       className: 'ol-prev', 
@@ -212,8 +212,8 @@ ol_Overlay_PopupFeature.prototype._getHtml = function(feature) {
       parent: div,
       click: function() {
         this._count++;
-        if (this._count>this._features.length) this._count = 1;
-        html = this._getHtml(this._features[this._count-1]);
+        if (this._count>this._features.length) this._count = 2;
+        html = this._getHtml(this._features[this._count-2]);
         setTimeout(function() { 
           ol_Overlay_Popup.prototype.show.call(this, this.getPosition(), html); 
         }.bind(this), 350 );
